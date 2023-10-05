@@ -103,7 +103,7 @@ function App() {
             filter.map((task, id) => (
               <div key={task.id} className='bg-gradient-to-r from-rose-100 p-2 rounded-md to-teal-100 flex justify-between items-center'>
                 <label htmlFor={task.id.toString()} className={`text-xl ${task.isCompleted && 'line-through'}`}>
-                  <Checkbox id={task.id.toString()} className='mr-4' onClick={() => {
+                  <Checkbox checked={task.isCompleted} id={task.id.toString()} className='mr-4' onClick={() => {
                     setTaskList(taskList.map(task => {
                       if (task.id === taskList[id].id) {
                         return {
