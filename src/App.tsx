@@ -56,7 +56,7 @@ function App() {
         </h1>
         <br />
         {/* {(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}')} */}
-        <div className='p-10 bg-rose-200 w-[30rem] space-y-4 rounded-md shadow-xl my-10 min-h-[20rem]'>
+        <div className='p-10 bg-rose-200 w-[24rem] space-y-4 rounded-md shadow-xl my-10 min-h-[20rem]'>
           <div className='flex gap-2'>
             <Input onKeyDown={
               (e) => {
