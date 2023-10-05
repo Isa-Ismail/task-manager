@@ -19,9 +19,11 @@ function App() {
   const { toast } = useToast()
   
   const [input, setInput] = React.useState<string>('')
+
   const [taskList, setTaskList] = React.useState<taskList[]>(
-    () => JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]')
+     JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]')
   )
+
   const [map, setMap] = React.useState<string>('all')
 
   const [filter, setFilter] = React.useState<taskList[]>([])
@@ -113,7 +115,7 @@ function App() {
                       }
                       return task
                     }))
-                  }} /> {task.task}
+                  }} /> {task.task} {task.isCompleted && <span className='text-rose-500'>✅</span>}
                 </label>
                 <div className='flex gap-2'>
                   <Button onClick={() => {
