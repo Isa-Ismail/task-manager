@@ -26,8 +26,6 @@ function App() {
 
   const [filter, setFilter] = React.useState<taskList[]>([])
 
-  // const { state, dispatch } = React.useContext(Store);
-
   useEffect(() => {
     const filteredTasks = taskList.filter( task => {
     if (map === 'completed') {

@@ -1,7 +1,5 @@
 import Typewriter from 'typewriter-effect'
 
-type Props = {}
-
 const TypewriterTitle = () => {
   return (
       <Typewriter
