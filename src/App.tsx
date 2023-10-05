@@ -5,6 +5,7 @@ import { Button } from './components/ui/button'
 import { Checkbox } from './components/ui/checkbox'
 import { useToast } from "./components/ui/use-toast"
 import TypewriterTitle from './components/Type'
+import { Trash } from 'lucide-react'
 
 export interface taskList {
     id: number,
@@ -122,9 +123,9 @@ function App() {
                 </label>
                 {task.isCompleted && <span className='text-rose-500'>✅</span>}
                 <div className='flex gap-2'>
-                  <Button onClick={() => {
+                  <Button className='bg-teal-500 rounded-full' onClick={() => {
                     setTaskList(taskList.filter(task => task.id !== filter[id].id))
-                  }}>Delete</Button>
+                  }}>❌ Delete</Button>
                 </div>
               </div>
             ))
