@@ -28,6 +28,18 @@ function App() {
 
   const [filter, setFilter] = React.useState<taskList[]>([])
 
+  const handleToggle = (id: number) => {
+    setTaskList(taskList.map(task => {
+      if (task.id === id) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted
+        }
+      }
+      return task
+    }))
+  }
+
   useEffect(() => {
     const filteredTasks = taskList.filter( task => {
     if (map === 'completed') {
@@ -105,21 +117,13 @@ function App() {
             filter.map((task, id) => (
               <div key={task.id} className='bg-gradient-to-r from-rose-100 p-2 rounded-md to-teal-100 flex justify-between items-center'>
                 <label htmlFor={task.id.toString()} className={`text-xl ${task.isCompleted && 'line-through'}`}>
-                  <Checkbox checked={task.isCompleted} id={task.id.toString()} className='mr-4' onClick={() => {
-                    setTaskList(taskList.map(task => {
-                      if (task.id === taskList[id].id) {
-                        return {
-                          ...task,
-                          isCompleted: !task.isCompleted
-                        }
-                      }
-                      return task
-                    }))
-                  }} /> {task.task} {task.isCompleted && <span className='text-rose-500'>✅</span>}
+                  <Checkbox checked={task.isCompleted} id={task.id.toString()} className='mr-4'
+                    onClick={ () => handleToggle(task.id) } /> {task.task}
                 </label>
+                {task.isCompleted && <span className='text-rose-500'>✅</span>}
                 <div className='flex gap-2'>
                   <Button onClick={() => {
-                    setTaskList(taskList.filter(task => task.id !== taskList[id].id))
+                    setTaskList(taskList.filter(task => task.id !== filter[id].id))
                   }}>Delete</Button>
                 </div>
               </div>
