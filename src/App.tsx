@@ -5,7 +5,6 @@ import { Button } from './components/ui/button'
 import { Checkbox } from './components/ui/checkbox'
 import { useToast } from "./components/ui/use-toast"
 import TypewriterTitle from './components/Type'
-import { Trash } from 'lucide-react'
 
 export interface taskList {
     id: number,
