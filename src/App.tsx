@@ -20,6 +20,8 @@ function App() {
   
   const [input, setInput] = React.useState<string>('')
 
+  const [error, setError] = React.useState<boolean>(false)
+
   const [taskList, setTaskList] = React.useState<taskList[]>(
      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]')
   )
@@ -72,7 +74,7 @@ function App() {
         {/* {(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}')} */}
         <div className='p-10 bg-rose-200 w-[24rem] space-y-4 rounded-md shadow-xl my-10 min-h-[20rem]'>
           <div className='flex gap-2'>
-            <Input onKeyDown={
+            <Input className={`${error && 'border-2 border-red-500'}`} onKeyDown={
               (e) => {
                 if (e.key === 'Enter' && input !== '') {
                   setTaskList(task => [...task, { id: Date.now(), task: input, isCompleted: false }])
@@ -82,6 +84,10 @@ function App() {
                     description: input,
                   })
                 } else if (e.key === 'Enter' && input === '') {
+                  setError(true)
+                  setTimeout(() => {
+                    setError(false)
+                  }, 1000)
                   toast({
                     variant: "destructive",
                     title: "Task cannot be empty",
@@ -98,6 +104,12 @@ function App() {
                       description: input,
                 })
               } else {
+                
+                setError(true)
+                setTimeout(() => {
+                  setError(false)
+                }, 1000)
+
                 toast({
                   variant: "destructive",
                   title: "Task cannot be empty",
