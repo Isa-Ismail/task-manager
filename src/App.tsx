@@ -62,7 +62,7 @@ function App() {
   }, [taskList, map])
 
   return (
-    <div className='flex min-h-screen justify-center items-center bg-gradient-to-r from-rose-100 to-teal-100'>
+    <div className='flex min-h-screen justify-center items-center bg-gradient-to-r from-rose-200 to-teal-100'>
       <div className='flex flex-col'>
         <h1 className="text-3xl text-center">
           Task manager app
@@ -72,7 +72,7 @@ function App() {
         </h1>
         <br />
         {/* {(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}')} */}
-        <div className='p-10 bg-rose-200 w-[24rem] space-y-4 rounded-md shadow-xl my-10 min-h-[20rem]'>
+        <div className='p-10 bg-green-50 w-[24rem] space-y-4 rounded-md shadow-xl my-10 min-h-[20rem]'>
           <div className='flex gap-2'>
             <Input className={`${error && 'border-2 border-red-500'}`} onKeyDown={
               (e) => {
@@ -127,7 +127,7 @@ function App() {
           }
           {
             filter.map((task, id) => (
-              <div key={task.id} className='bg-gradient-to-r from-rose-100 p-2 rounded-md to-teal-100 flex justify-between items-center'>
+              <div key={task.id} className='bg-gradient-to-r from-rose-100 px-6 p-2 rounded-md to-teal-100 flex justify-between items-center'>
                 <label htmlFor={task.id.toString()} className={`text-xl ${task.isCompleted && 'line-through'}`}>
                   <Checkbox checked={task.isCompleted} id={task.id.toString()} className='mr-4'
                     onClick={ () => handleToggle(task.id) } /> {task.task}
