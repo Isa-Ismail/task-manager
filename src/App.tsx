@@ -90,7 +90,7 @@ function App() {
                 }
               }
             } placeholder='Enter task' value={input} onChange={(e) => setInput(e.target.value)} />
-            <Button onClick={() => {
+            <Button className='bg-blue-400 hover:bg-slate-500' onClick={() => {
               if (input !== '') {
                 setTaskList(task => [...task, { id: Date.now(), task: input, isCompleted: false }])
                 setInput('')
